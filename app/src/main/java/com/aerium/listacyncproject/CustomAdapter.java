@@ -38,7 +38,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup parent) {
         ViewHolder viewHolder;
         if (view==null){
             LayoutInflater inflater = LayoutInflater.from(context);
@@ -56,6 +56,9 @@ public class CustomAdapter extends BaseAdapter {
         try {
             String View = jsonArray.getJSONObject(i).getString("formula");
             String Url = jsonArray.getJSONObject(i).getString("url");
+
+            viewHolder.txtview.setText(View);
+            viewHolder.txtUrl.setText(Url);
         }catch (JSONException e) {
             e.printStackTrace();
         }
